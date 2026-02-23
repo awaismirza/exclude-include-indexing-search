@@ -9,13 +9,42 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:exclude-include-indexing-search.excludeFolderFromSearch",
+    "onCommand:exclude-include-indexing-search.includeFolderInSearch"
+  ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "exclude-include-indexing-search.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "exclude-include-indexing-search.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "exclude-include-indexing-search.excludeFolderFromSearch",
+        "title": "Exclude Folder from Search",
+        "category": "Folder Include/Exclude Manager"
+      },
+      {
+        "command": "exclude-include-indexing-search.includeFolderInSearch",
+        "title": "Include Folder in Search",
+        "category": "Folder Include/Exclude Manager"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "exclude-include-indexing-search.excludeFolderFromSearch",
+          "when": "resourceUri.scheme == 'file' && resourceUri.fsPath =~ /\/[^.][^\/]*$/",
+          "group": "navigation@10"
+        },
+        {
+          "command": "exclude-include-indexing-search.includeFolderInSearch",
+          "when": "resourceUri.scheme == 'file' && resourceUri.fsPath =~ /\/[^.][^\/]*$/",
+          "group": "navigation@11"
+        }
+      ]
+    }
   },
   "scripts": {
     "lint": "eslint .",
