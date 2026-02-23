@@ -58,5 +58,9 @@
     "eslint": "^9.39.2",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awaismirza/exclude-include-indexing-search.git"
   }
 }
